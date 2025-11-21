@@ -66,6 +66,13 @@ export const linkGroups = [
     disabled: false,
     isExternal: false,
   },
+
+  {
+    link: '#contact',
+    text: 'Contact',
+    disabled: false,
+    isExternal: false,
+  },
   {
     link: '#skills',
     text: 'Skills',
