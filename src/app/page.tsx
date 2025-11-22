@@ -10,6 +10,7 @@ import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
+import YoutubeTutorials from "@/components/Youtube";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,7 +28,7 @@ export default function Home() {
   return (
     <div className="relative">
       <MarketingHeader />
-      
+
        <section id='hero'>
         <Hero />
       </section>
@@ -46,6 +47,10 @@ export default function Home() {
 
       <section id='experience'>
         <Experience />
+      </section>
+
+       <section>
+        <YoutubeTutorials />
       </section>
 
       <section id='contact'>

@@ -13,7 +13,7 @@ export default function Experience() {
         <h2 className="text-3xl font-bold mb-4 flex items-center justify-center gap-4">
           <span>Experience</span>
         </h2>
-        <div className="w-40 h-[3px] bg-[#E9B949] mx-auto mb-12 rounded-full"></div>
+        <div className="w-20 h-[3px] bg-[#E9B949] mx-auto mb-12 rounded-full"></div>
 
         {/* Single Experience Card */}
         <div className="bg-[#001121] p-8 rounded-xl border border-transparent hover:border-[#E9B949]/40 hover:bg-[#001529] transition-all text-left max-w-3xl mx-auto">

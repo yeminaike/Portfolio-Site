@@ -14,6 +14,10 @@ interface DrawerProps {
     contentClass?: string;
     trigger: React.ReactNode;
     triggerClass?: string;
+
+    /** Controlled drawer props */
+    open?: boolean;
+    onOpenChange?: (open: boolean) => void;
 }
 
 const DrawerMenu: React.FC<DrawerProps> = ({
@@ -24,7 +28,9 @@ const DrawerMenu: React.FC<DrawerProps> = ({
     children,
     contentClass,
     trigger,
-    triggerClass
+    triggerClass,
+    open,
+    onOpenChange,
 }) => {
     const directionClass = React.useMemo(() => {
         switch (direction) {
@@ -42,28 +48,23 @@ const DrawerMenu: React.FC<DrawerProps> = ({
     }, [direction]);
 
     const snapPointsProps = React.useMemo(() => {
-        if (snapPoints.length === 0) {
-            return {};
-        }
-
-        return {
-            snapPoints,
-            activeSnapPoint,
-        };
+        if (snapPoints.length === 0) return {};
+        return { snapPoints, activeSnapPoint };
     }, [snapPoints, activeSnapPoint]);
 
     return (
         <Drawermenu
             direction={direction}
             shouldScaleBackground={shouldScaleBackground}
+            open={open}                     // controlled
+            onOpenChange={onOpenChange}     // controlled
             {...snapPointsProps}
         >
-            {
-                trigger &&
+            {trigger && (
                 <DrawerTrigger className={triggerClass} asChild>
                     {trigger}
                 </DrawerTrigger>
-            }
+            )}
             <DrawerMenuContent
                 className={cn(
                     `fixed inset-0 z-50 ${directionClass} flex h-auto flex-col`,
@@ -76,4 +77,4 @@ const DrawerMenu: React.FC<DrawerProps> = ({
     );
 };
 
-export default DrawerMenu
+export default DrawerMenu;

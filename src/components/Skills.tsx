@@ -21,6 +21,7 @@ export default function Skills() {
     { name: "Next.js", icon: <Globe size={28} /> },
     { name: "TypeScript", icon: <Braces size={28} /> },
     { name: "JavaScript", icon: <Terminal size={28} /> },
+     { name: "NodeJs Express", icon: <Terminal size={28} /> },
     { name: "React Native", icon: <Smartphone size={28} /> },
     { name: "Git", icon: <GitBranch size={28} /> },
     { name: "GitHub", icon: <Github size={28} /> },
@@ -32,15 +33,15 @@ export default function Skills() {
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
-    carouselRef.current?.scrollBy({ left: -300, behavior: "smooth" });
+    carouselRef.current?.scrollBy({ left: -250, behavior: "smooth" });
   };
 
   const scrollRight = () => {
-    carouselRef.current?.scrollBy({ left: 300, behavior: "smooth" });
+    carouselRef.current?.scrollBy({ left: 250, behavior: "smooth" });
   };
 
   return (
-    <div className="px-6 md:px-[6.25rem] py-20 bg-gradient-to-br from-[#000814] via-[#001d3d] to-[#003566] text-white relative">
+    <div className="px-6 md:px-[6.25rem] py-20 bg-gradient-to-br from-[#000814] via-[#001d3d] to-[#003566] text-white">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-4">Technical Skills</h2>
         <div className="w-20 h-[3px] bg-[#E9B949] mx-auto mb-10 rounded-full"></div>
@@ -50,19 +51,20 @@ export default function Skills() {
         </p>
 
         {/* Carousel with Arrows */}
-        <div className="relative">
-          {/* Left Arrow */}
+        <div className="relative flex items-center gap-3">
+
+          {/* Left Arrow – NOW VISIBLE ON MOBILE */}
           <button
             onClick={scrollLeft}
-            className="hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#E9B949] text-black p-2 rounded-full shadow-lg hover:bg-[#d9a53c] z-10"
+            className="flex items-center justify-center bg-[#E9B949] text-black p-2 rounded-full shadow-lg hover:bg-[#d9a53c]"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={20} />
           </button>
 
-          {/* Skills Carousel */}
+          {/* Scrollable Row */}
           <div
             ref={carouselRef}
-            className="flex gap-6 overflow-hidden scroll-smooth py-4 px-2 md:px-0"
+            className="flex gap-4 overflow-hidden scroll-smooth py-4 px-1 no-scrollbar"
           >
             {skills.map((skill) => (
               <div
@@ -81,13 +83,14 @@ export default function Skills() {
             ))}
           </div>
 
-     
+          {/* Right Arrow – NOW VISIBLE ON MOBILE */}
           <button
             onClick={scrollRight}
-            className="hidden md:flex absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#E9B949] text-black p-2 rounded-full shadow-lg hover:bg-[#d9a53c] z-10"
+            className="flex items-center justify-center bg-[#E9B949] text-black p-2 rounded-full shadow-lg hover:bg-[#d9a53c]"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={20} />
           </button>
+
         </div>
       </div>
     </div>

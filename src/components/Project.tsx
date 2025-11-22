@@ -35,7 +35,7 @@ export default function Projects() {
 
     {
       name: "Kenya Predict Wiser",
-     skills: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
+     skills: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Zustard"],
       description:
         "Kenya Predict Wiser offers expert predictions across 50+ leagues, helping users make smarter, more profitable betting decisions—with support for multiple languages.",
       liveLink: "https://your-live-site.com",
@@ -55,7 +55,7 @@ export default function Projects() {
 
     {
       name: "Liberty Flex",
-      skills: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
+      skills: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Zustard"],
       description:
         "Liberty Flex lets users access smartphones and gadgets with flexible payment plans. Browse, apply, and own devices instantly—no heavy upfront costs.",
       liveLink: "https://your-live-site.com",

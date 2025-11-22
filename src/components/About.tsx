@@ -1,19 +1,25 @@
+"use client";
+
 import React from "react";
 
 export default function About() {
   return (
-    <div className="px-6 md:px-[6.25rem] py-12 bg-gradient-to-br from-[#000814] via-[#001d3d] to-[#003566] text-white">
-      <div className="max-w-4xl">
-        <h2 className="text-3xl font-bold mb-8 flex items-center gap-4">
-        
+    <div className="px-6 md:px-[6.25rem] py-20 bg-gradient-to-br from-[#000814] via-[#001d3d] to-[#003566] text-white">
+      <div className="max-w-4xl mx-auto text-center">
+
+        {/* Title */}
+        <h2 className="text-3xl font-bold mb-4 flex items-center justify-center gap-4">
           <span>About Me</span>
-          <span className="flex-1 h-px bg-border ml-4"></span>
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="md:col-span-2">
+        {/* Yellow divider (same as Experience) */}
+        <div className="w-20 h-[3px] bg-[#E9B949] mx-auto mb-12 rounded-full"></div>
+
+        {/* Content */}
+        <div className="grid md:grid-cols-3 gap-8 text-left">
+          <div className="md:col-span-3">
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Hello!  I&apos;m a passionate frontend developer who loves turning ideas
+              Hello! I&apos;m a passionate frontend developer who loves turning ideas
               into fast, accessible, and visually pleasing digital experiences. My journey
               started years ago when I began customizing themes and experimenting with HTML
               & CSS — and I’ve been building ever since.

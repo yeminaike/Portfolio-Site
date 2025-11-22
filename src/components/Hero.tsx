@@ -47,8 +47,8 @@ export default function Hero() {
   return (
     <div className="">
 
-  <div className="px-6 md:px-[6.25rem] bg-gradient-to-br from-[#000814] via-[#001d3d] to-[#003566] text-white">
-        <section className="min-h-screen flex items-center px-6 md:px-8">
+  <div className="xl:px-[2rem] [@media(min-width:1555px)]:px-[6.25rem] px-[1.5rem] bg-gradient-to-br from-[#000814] via-[#001d3d] to-[#003566] text-white">
+        <section className="min-h-screen flex items-center ">
           <div className="max-w-4xl w-full">
             <p className="text-[#E9B949] font-mono text-sm mb-6 tracking-wider">
               Adeyemi Ogunnaike
@@ -59,7 +59,7 @@ export default function Hero() {
               <span className="border-r-4 border-[#E9B949] ml-1 animate-pulse"></span>
             </h1>
 
-            <p className="text-lg text-gray-300 max-w-2xl mb-12 leading-relaxed">
+            <p className="md:text-lg text-[1rem] text-gray-300 max-w-2xl mb-12 leading-relaxed">
               I’m a frontend engineer specializing in building high-quality, accessible
               digital products. I focus on crafting clean UI, smooth user experiences, and
               performant web applications using React, Next.js, TypeScript, and Tailwind CSS.

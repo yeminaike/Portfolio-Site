@@ -91,7 +91,7 @@ const fontInter = Inter({
 
 
 export const metadata = {
-  title: 'Frontend Developer Portfolio',
+  title: 'Adeyemi Ogunnaike Portfolio',
   description:
     'Portfolio showcasing frontend development projects and skills',
   // verification: {
