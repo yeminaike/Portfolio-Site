@@ -2,20 +2,24 @@
 
 import React from "react";
 import { motion, Variants } from "framer-motion";
+import { Play } from "lucide-react"; // YouTube play icon
 
 export default function YoutubeTutorials() {
   const videos = [
     {
       title: "How to create a Card Component in React",
-      url: "https://www.youtube.com/embed/kr8dpSt0Ie0",
+      url: "https://www.youtube.com/watch?v=kr8dpSt0Ie0",
+      thumbnail: "https://img.youtube.com/vi/kr8dpSt0Ie0/hqdefault.jpg",
     },
     {
       title: "Deploy React Project to Github Pages",
-      url: "https://www.youtube.com/embed/WXMitw4AGEU",
+      url: "https://www.youtube.com/watch?v=WXMitw4AGEU",
+      thumbnail: "https://img.youtube.com/vi/WXMitw4AGEU/hqdefault.jpg",
     },
     {
       title: "git branch : fatal error solved",
-      url: "https://www.youtube.com/embed/Zd8qeSlX9f0",
+      url: "https://www.youtube.com/watch?v=Zd8qeSlX9f0",
+      thumbnail: "https://img.youtube.com/vi/Zd8qeSlX9f0/hqdefault.jpg",
     },
   ];
 
@@ -39,15 +43,15 @@ export default function YoutubeTutorials() {
       className="py-24 px-6 lg:px-8 bg-gradient-to-br from-[#000814] via-[#001d3d] to-[#003566] text-white"
     >
       <div className="max-w-5xl mx-auto text-center">
+
         {/* Title */}
         <motion.h2
-          className="text-3xl font-bold mb-4 flex items-center justify-center gap-4"
+          className="text-3xl font-bold mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.6 }}
         >
-          <span>YouTube Tutorials</span>
+          YouTube Tutorials
         </motion.h2>
 
         {/* Yellow Divider */}
@@ -55,21 +59,20 @@ export default function YoutubeTutorials() {
           className="w-40 h-[3px] bg-[#E9B949] mx-auto mb-12 rounded-full"
           initial={{ opacity: 0, scaleX: 0 }}
           whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        ></motion.div>
+          transition={{ duration: 0.6 }}
+        />
 
         {/* Videos Grid */}
         <motion.div
           className="grid md:grid-cols-3 gap-8"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
           variants={containerVariants}
         >
           {videos.map((video, index) => (
             <motion.div
               key={index}
+              variants={cardVariants}
               className="
                 group 
                 bg-[#001121] 
@@ -85,27 +88,45 @@ export default function YoutubeTutorials() {
                 cursor-pointer
                 hover:shadow-lg
               "
-              variants={cardVariants}
             >
-              <div className="aspect-video w-full">
-                <iframe
-                  className="w-full h-full"
-                  src={video.url}
-                  title={video.title}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
+              {/* Entire clickable card */}
+              <a
+                href={video.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                {/* Thumbnail + Play Icon */}
+                <div className="relative aspect-video w-full">
+                  <img
+                    src={video.thumbnail}
+                    alt={video.title}
+                    className="w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-all duration-300"
+                  />
 
-              <div className="p-4">
-                <h3 className="text-lg font-medium text-white group-hover:text-[#E9B949] transition-colors duration-300">
-                  {video.title}
-                </h3>
-              </div>
+                  {/* Play Icon */}
+                  <div className="
+                    absolute inset-0 
+                    flex items-center justify-center
+                    bg-black/30 
+                    opacity-0 group-hover:opacity-100 
+                    transition duration-300
+                  ">
+                    <Play className="w-16 h-16 text-white drop-shadow-lg" />
+                  </div>
+                </div>
+
+                {/* Title */}
+                <div className="p-4 pb-5">
+                  <h3 className="text-lg font-medium text-white group-hover:text-[#E9B949] transition-colors duration-300">
+                    {video.title}
+                  </h3>
+                </div>
+              </a>
             </motion.div>
           ))}
         </motion.div>
+
       </div>
     </section>
   );
