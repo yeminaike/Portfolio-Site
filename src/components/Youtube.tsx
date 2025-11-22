@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion, Variants } from "framer-motion";
 
 export default function YoutubeTutorials() {
   const videos = [
@@ -18,25 +19,56 @@ export default function YoutubeTutorials() {
     },
   ];
 
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+    },
+  };
+
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.15 } },
+  };
+
   return (
     <section
       id="youtube"
       className="py-24 px-6 lg:px-8 bg-gradient-to-br from-[#000814] via-[#001d3d] to-[#003566] text-white"
     >
       <div className="max-w-5xl mx-auto text-center">
-
         {/* Title */}
-        <h2 className="text-3xl font-bold mb-4 flex items-center justify-center gap-4">
+        <motion.h2
+          className="text-3xl font-bold mb-4 flex items-center justify-center gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           <span>YouTube Tutorials</span>
-        </h2>
+        </motion.h2>
 
         {/* Yellow Divider */}
-        <div className="w-40 h-[3px] bg-[#E9B949] mx-auto mb-12 rounded-full"></div>
+        <motion.div
+          className="w-40 h-[3px] bg-[#E9B949] mx-auto mb-12 rounded-full"
+          initial={{ opacity: 0, scaleX: 0 }}
+          whileInView={{ opacity: 1, scaleX: 1 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        ></motion.div>
 
         {/* Videos Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div
+          className="grid md:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          variants={containerVariants}
+        >
           {videos.map((video, index) => (
-            <div
+            <motion.div
               key={index}
               className="
                 group 
@@ -53,6 +85,7 @@ export default function YoutubeTutorials() {
                 cursor-pointer
                 hover:shadow-lg
               "
+              variants={cardVariants}
             >
               <div className="aspect-video w-full">
                 <iframe
@@ -70,10 +103,9 @@ export default function YoutubeTutorials() {
                   {video.title}
                 </h3>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-
+        </motion.div>
       </div>
     </section>
   );

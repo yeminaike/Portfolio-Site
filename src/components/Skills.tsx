@@ -1,6 +1,7 @@
-'use client';
+"use client";
 
 import React, { useRef } from "react";
+import { motion, Variants } from "framer-motion";
 import {
   Code2,
   Terminal,
@@ -21,7 +22,7 @@ export default function Skills() {
     { name: "Next.js", icon: <Globe size={28} /> },
     { name: "TypeScript", icon: <Braces size={28} /> },
     { name: "JavaScript", icon: <Terminal size={28} /> },
-     { name: "NodeJs Express", icon: <Terminal size={28} /> },
+    { name: "NodeJs Express", icon: <Terminal size={28} /> },
     { name: "React Native", icon: <Smartphone size={28} /> },
     { name: "Git", icon: <GitBranch size={28} /> },
     { name: "GitHub", icon: <Github size={28} /> },
@@ -40,6 +41,20 @@ export default function Skills() {
     carouselRef.current?.scrollBy({ left: 250, behavior: "smooth" });
   };
 
+  // Container animation for staggering children
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.1 },
+    },
+  };
+
+  // Individual card animation
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
+  };
+
   return (
     <div className="px-6 md:px-[6.25rem] py-20 bg-gradient-to-br from-[#000814] via-[#001d3d] to-[#003566] text-white">
       <div className="max-w-5xl mx-auto text-center">
@@ -52,8 +67,6 @@ export default function Skills() {
 
         {/* Carousel with Arrows */}
         <div className="relative flex items-center gap-3">
-
-          {/* Left Arrow – NOW VISIBLE ON MOBILE */}
           <button
             onClick={scrollLeft}
             className="flex items-center justify-center bg-[#E9B949] text-black p-2 rounded-full shadow-lg hover:bg-[#d9a53c]"
@@ -61,17 +74,22 @@ export default function Skills() {
             <ChevronLeft size={20} />
           </button>
 
-          {/* Scrollable Row */}
-          <div
+          {/* Scrollable Row with Framer Motion */}
+          <motion.div
             ref={carouselRef}
             className="flex gap-4 overflow-hidden scroll-smooth py-4 px-1 no-scrollbar"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            variants={containerVariants}
           >
             {skills.map((skill) => (
-              <div
+              <motion.div
                 key={skill.name}
                 className="flex-none flex flex-col items-center gap-3 bg-[#001121] min-w-[120px]
-                p-6 rounded-xl border border-transparent hover:border-[#E9B949]/40
-                hover:bg-[#001529] transition-all group"
+                  p-6 rounded-xl border border-transparent hover:border-[#E9B949]/40
+                  hover:bg-[#001529] transition-all group"
+                variants={cardVariants}
               >
                 <div className="text-[#E9B949] group-hover:scale-110 transition-transform">
                   {skill.icon}
@@ -79,18 +97,16 @@ export default function Skills() {
                 <p className="text-gray-300 text-sm font-medium group-hover:text-white mt-2">
                   {skill.name}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Right Arrow – NOW VISIBLE ON MOBILE */}
           <button
             onClick={scrollRight}
             className="flex items-center justify-center bg-[#E9B949] text-black p-2 rounded-full shadow-lg hover:bg-[#d9a53c]"
           >
             <ChevronRight size={20} />
           </button>
-
         </div>
       </div>
     </div>

@@ -60,7 +60,7 @@ export default function Hero() {
             </h1>
 
             <p className="md:text-lg text-[1rem] text-gray-300 max-w-2xl mb-12 leading-relaxed">
-              I’m a frontend engineer specializing in building high-quality, accessible
+              I’m a frontend engineer specializing in building high quality, accessible
               digital products. I focus on crafting clean UI, smooth user experiences, and
               performant web applications using React, Next.js, TypeScript, and Tailwind CSS.
             </p>
