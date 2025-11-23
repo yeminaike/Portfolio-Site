@@ -56,7 +56,7 @@ export default function Experience() {
               className="text-2xl font-semibold mb-2 md:mb-0"
               variants={listItemVariants}
             >
-              Senior Frontend Developer
+            Frontend Developer
             </motion.h3>
             <motion.span
               className="text-[#E9B949] font-medium"
