@@ -9,7 +9,7 @@ export default function Projects() {
       name: "Manti Group",
       skills: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
       description:"The site solves the problem of giving an independent music label a professional, high quality web presence that communicates brand identity, promotes its artistes, and converts visitors into business leads through a working inquiry pipeline.",
-      liveLink: "https://www.themantigroup.com/",
+      liveLink: "https://my-manti-group.vercel.app/",
     },
 
 
