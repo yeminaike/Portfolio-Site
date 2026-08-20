@@ -23,8 +23,7 @@ export default function Home() {
   }, []);
 
  
-  if (isLoading) return 
-   <Loader />;
+  if (isLoading) return <Loader />;
   
   return (
     <div className="relative">
