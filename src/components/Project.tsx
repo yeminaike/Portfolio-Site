@@ -5,6 +5,14 @@ import { motion, Variants } from "framer-motion";
 
 export default function Projects() {
   const projects = [
+     {
+      name: "Manti Group",
+      skills: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
+      description:"The site solves the problem of giving an independent music label a professional, high quality web presence that communicates brand identity, promotes its artistes, and converts visitors into business leads through a working inquiry pipeline.",
+      liveLink: "https://www.themantigroup.com/",
+    },
+
+
     {
       name: "Support Chat Agentic AI",
       skills: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
@@ -26,13 +34,13 @@ export default function Projects() {
         "Whispa Konnect delivers innovative VAS, bulk messaging, gamification, lotteries, and USSD services—offering seamless entertainment and engagement for brands and users.",
       liveLink: "https://whisper-konnect-main.vercel.app/",
     },
-    {
-      name: "Kenya Predict Wiser",
-      skills: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Zustard"],
-      description:
-        "Kenya Predict Wiser offers expert predictions across 50+ leagues, helping users make smarter, more profitable betting decisions—with support for multiple languages.",
-      liveLink: "https://kenya-predict-wiser.vercel.app/",
-    },
+    // {
+    //   name: "Kenya Predict Wiser",
+    //   skills: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Zustard"],
+    //   description:
+    //     "Kenya Predict Wiser offers expert predictions across 50+ leagues, helping users make smarter, more profitable betting decisions—with support for multiple languages.",
+    //   liveLink: "https://kenya-predict-wiser.vercel.app/",
+    // },
     {
       name: "CookBeta",
       skills: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
